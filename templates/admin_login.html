@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Login or Register</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>Admin Portal</h1>
+    {% if not admins_exist %}
+    <h2>Create an Admin Account</h2>
+    <form method="POST" class="login-form">
+        <input type="hidden" name="action" value="register">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Register</button>
+    </form>
+    {% else %}
+    <form method="POST" class="login-form">
+        <input type="hidden" name="action" value="login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+    {% endif %}
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+    <style>
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: auto;
+        }
+        .login-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .login-form input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-form button {
+            background-color: #002147;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 5px;
+        }
+        .login-form button:hover {
+            background-color: #00bcd4;
+            transform: translateY(-3px);
+        }
+        .message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+    {% endblock %}
+</body>
+</html>

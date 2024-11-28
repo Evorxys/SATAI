@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Student Login</h1>
+<div class="form-container">
+    <form method="POST" class="login-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Log In</button>
+    </form>
+</div>
+<style>
+    .form-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: auto;
+        color: #333;
+    }
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .login-form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .login-form input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    .login-form input:focus {
+        border-color: #00bcd4;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+    }
+    .login-form button {
+        background-color: #002147;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 5px;
+    }
+    .login-form button:hover {
+        background-color: #00bcd4;
+        transform: translateY(-3px);
+    }
+</style>
+{% endblock %}
